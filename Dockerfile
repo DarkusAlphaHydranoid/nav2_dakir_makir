@@ -1,5 +1,6 @@
 ARG ROS_DISTRO=rolling
-FROM osrf/ros:${ROS_DISTRO}-desktop-full
+ARG BASE_IMAGE=osrf/ros:${ROS_DISTRO}-desktop-full
+FROM $BASE_IMAGE
 
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends --no-install-suggests \
