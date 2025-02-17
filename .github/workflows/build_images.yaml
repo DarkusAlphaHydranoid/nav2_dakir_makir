@@ -37,7 +37,7 @@ jobs:
           push: true
           pull: true
           tags: ghcr.io/darkusalphahydranoid:${{ matrix.ros_distro }}-nightly
-          platforms: linux/arm64v8
+          platforms: linux/arm64/v8
           build-args: |
             ROS_DISTRO=${{ matrix.ros_distro }}
             BUILD=true
