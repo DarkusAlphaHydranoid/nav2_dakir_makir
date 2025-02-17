@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=rolling
-FROM arm64v8/ros:rolling-ros-core
+FROM arm64v8/ros:rolling
 
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends --no-install-suggests \
