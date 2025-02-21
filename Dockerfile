@@ -29,7 +29,7 @@ RUN apt install cppzmq-dev ros-${ROS_DISTRO}-ros-gz -y --no-install-recommends -
 
 # For distribution of Nav2
 ARG BUILD=true
-ARG COLCON_BUILD_ARGS=""
+ARG COLCON_BUILD_ARGS="--parallel-workers 2"
 RUN if [ "${BUILD}" = "true" ]; then \
       . /opt/ros/${ROS_DISTRO}/setup.sh && colcon build $COLCON_BUILD_ARGS; \
     fi
