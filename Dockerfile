@@ -1,5 +1,5 @@
 ARG ROS_DISTRO=rolling
-FROM arm64v8/ros:rolling
+FROM osrf/ros:${ROS_DISTRO}-desktop-full
 
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive apt install -y --no-install-recommends --no-install-suggests \
@@ -29,9 +29,10 @@ RUN apt install cppzmq-dev ros-${ROS_DISTRO}-ros-gz -y --no-install-recommends -
 
 # For distribution of Nav2
 ARG BUILD=true
-ARG COLCON_BUILD_ARGS="--parallel-workers 2"
+ARG COLCON_BUILD_ARGS=""
 RUN if [ "${BUILD}" = "true" ]; then \
       . /opt/ros/${ROS_DISTRO}/setup.sh && colcon build $COLCON_BUILD_ARGS; \
     fi
 
 WORKDIR /root/nav2_ws
+
