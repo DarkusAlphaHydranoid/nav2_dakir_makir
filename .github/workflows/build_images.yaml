@@ -57,7 +57,12 @@ jobs:
           - { ros_distro: 'humble', main_version: '1', distro_version: '1' }
           - { ros_distro: 'iron', main_version: '1', distro_version: '2' }
           - { ros_distro: 'jazzy', main_version: '1', distro_version: '3' }
-
+          
+    permissions:
+      contents: read
+      packages: write
+      attestations: write
+      id-token: write
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
